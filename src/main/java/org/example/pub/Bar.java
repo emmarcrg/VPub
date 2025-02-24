@@ -1,4 +1,4 @@
-package pub;
+package org.example.pub;
 import java.util.Vector;
 import java.util.Enumeration;
 
@@ -7,9 +7,9 @@ import java.util.Enumeration;
  *
  */
 public class Bar {
-    public Vector<pub.Boisson> boissonChaude;
-    public Vector<pub.Boisson> boissonFroide;
-    public Vector<pub.Boisson> boissonAlcoolisee;
+    public Vector<Boisson> boissonChaude;
+    public Vector<Boisson> boissonFroide;
+    public Vector<Boisson> boissonAlcoolisee;
     public Vector<Cocktail> cocktailSansAlcoole;
     public Vector<Cocktail> cocktailAvecAlcoole;
 
@@ -17,9 +17,9 @@ public class Bar {
      *
      */
     public Bar(){
-        this.boissonChaude = new Vector<pub.Boisson>();
-        this.boissonFroide = new Vector<pub.Boisson>();
-        this.boissonAlcoolisee = new Vector<pub.Boisson>();
+        this.boissonChaude = new Vector<Boisson>();
+        this.boissonFroide = new Vector<Boisson>();
+        this.boissonAlcoolisee = new Vector<Boisson>();
 
         this.cocktailAvecAlcoole = new Vector<Cocktail>();
         this.cocktailSansAlcoole = new Vector<Cocktail>();
@@ -28,7 +28,7 @@ public class Bar {
     /**
      * @param boisson
      */
-    public void add(pub.Boisson boisson){
+    public void add(Boisson boisson){
         if(boisson.alcoolise){
             this.boissonAlcoolisee.add(boisson);
         }else{
@@ -52,7 +52,7 @@ public class Bar {
      * @return
      */
     public Object serv(String command){
-        pub.Boisson retourB=null;
+        Boisson retourB=null;
         Cocktail retourC=null;
         Enumeration e;
 

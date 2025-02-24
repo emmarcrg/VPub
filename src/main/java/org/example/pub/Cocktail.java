@@ -1,4 +1,4 @@
-package pub;
+package org.example.pub;
 
 import java.util.Vector;
 import java.util.Enumeration;

@@ -1,4 +1,4 @@
-package pub;
+package org.example.pub;
 
 /**
  * Virtual PUB
@@ -6,15 +6,15 @@ package pub;
 public class Pub {
 
 
-    public pub.Bar bar;
-    public pub.Cave cave;
+    public Bar bar;
+    public Cave cave;
 
     /**
      *
      */
     public Pub(){
-        this.bar = new pub.Bar();
-        this.cave = new pub.Cave();
+        this.bar = new Bar();
+        this.cave = new Cave();
     }
 
     public void approvisionnerBar(String nom){

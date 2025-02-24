@@ -1,4 +1,4 @@
-package pub;
+package org.example.pub;
 
 import java.util.Vector;
 import java.util.Enumeration;
@@ -7,19 +7,19 @@ import java.util.Enumeration;
  *
  */
 public class Cave {
-    public Vector<pub.Boisson> rayons;
+    public Vector<Boisson> rayons;
 
     /**
      *
      */
     public Cave(){
-        this.rayons = new Vector<pub.Boisson>();
+        this.rayons = new Vector<Boisson>();
     }
 
     /**
      * @param b
      */
-    public void add(pub.Boisson b){
+    public void add(Boisson b){
         this.rayons.add(b);
     }
 
@@ -27,10 +27,10 @@ public class Cave {
      * @param nom
      * @return
      */
-    public pub.Boisson take(String nom){
-        pub.Boisson retour = null;
+    public Boisson take(String nom){
+        Boisson retour = null;
         Enumeration e = this.rayons.elements ();
-        while (e.hasMoreElements () && !((retour=(pub.Boisson)e.nextElement()).nom.equalsIgnoreCase(nom))){}
+        while (e.hasMoreElements () && !((retour=(Boisson)e.nextElement()).nom.equalsIgnoreCase(nom))){}
         this.rayons.remove(retour);
         return retour;
     }
