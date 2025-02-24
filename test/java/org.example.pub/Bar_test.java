@@ -1,5 +1,8 @@
-package pub;
+package org.example.pub;
 
+import org.example.pub.Bar;
+import org.example.pub.Boisson;
+import org.example.pub.Cocktail;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

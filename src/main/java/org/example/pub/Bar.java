@@ -57,21 +57,21 @@ public class Bar {
         Enumeration e;
 
         e = this.boissonFroide.elements ();
-        while (e.hasMoreElements () && !((retourB=(pub.Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
         if(retourB.nom.equalsIgnoreCase(command)){
             this.boissonFroide.remove(retourB);
             return retourB;
         }
 
         e = this.boissonAlcoolisee.elements ();
-        while (e.hasMoreElements () && !((retourB=(pub.Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
         if(retourB.nom.equalsIgnoreCase(command)){
             this.boissonAlcoolisee.remove(retourB);
             return retourB;
         }
 
         e = this.boissonChaude.elements ();
-        while (e.hasMoreElements () && !((retourB=(pub.Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
         if(retourB.nom.equalsIgnoreCase(command)){
             this.boissonChaude.remove(retourB);
             return retourB;

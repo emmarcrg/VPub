@@ -29,10 +29,10 @@ public class Pub {
         /* Creation du pub */
         Pub pub = new Pub();
 
-        pub.Boisson coca = new pub.Boisson("Coca");
-        pub.Boisson eau = new pub.Boisson("Eau");
-        pub.Boisson sky = new pub.Boisson("Whisky", new Float(40));
-        pub.Boisson bierre = new pub.Boisson("Bierre", new Float(8));
+        Boisson coca = new Boisson("Coca");
+        Boisson eau = new Boisson("Eau");
+        Boisson sky = new Boisson("Whisky", new Float(40));
+        Boisson bierre = new Boisson("Bierre", new Float(8));
 
         pub.cave.add(coca);
         pub.cave.add(coca);
@@ -51,12 +51,12 @@ public class Pub {
         pub.approvisionnerBar("Coca");
         pub.approvisionnerBar("eau");
 
-        pub.Cocktail maz = new pub.Cocktail("Mazout");
+        Cocktail maz = new Cocktail("Mazout");
         maz.add("bierre", new Double(50));
         maz.add("coca", new Double(50));
         pub.bar.add(maz);
 
-        pub.Boisson cafe = new pub.Boisson("cafe");
+        Boisson cafe = new Boisson("cafe");
         pub.bar.boissonChaude.add(cafe);
 
         System.out.println(pub.cave);
