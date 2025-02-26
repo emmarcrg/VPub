@@ -1,7 +1,6 @@
 package org.example.pub;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Vector;
 import java.util.Enumeration;
 
 /**
@@ -54,56 +53,45 @@ public class Bar {
 
     /**
      * @param command
-     * @return
      */
-    public Object serv(String command) {
-        Boisson retourB = null;
-        Cocktail retourC = null;
+    public void serv(String command){
+        Boisson retourB=null;
+        Cocktail retourC=null;
+        Enumeration e = Collections.enumeration(this.boissonFroide);
 
-        if (!this.boissonFroide.isEmpty()) {
-            for (Boisson boisson : this.boissonFroide) {
-                if (boisson.nom.equals(command)) {
-                    retourB = boisson;
-                    this.boissonFroide.remove(retourB);
-                    break;
-                }
-            }
-        } else if (!this.boissonChaude.isEmpty()) {
-            for (Boisson boisson : this.boissonChaude) {
-                if (boisson.nom.equals(command)) {
-                    retourB = boisson;
-                    this.boissonChaude.remove(retourB);
-                    break;
-                }
-            }
-        } else if (!this.boissonAlcoolisee.isEmpty()) {
-            for (Boisson boisson : this.boissonAlcoolisee) {
-                if (boisson.nom.equals(command)) {
-                    retourB = boisson;
-                    this.boissonAlcoolisee.remove(retourB);
-                    break;
-                }
-            }
-        } else if (!this.cocktailAvecAlcoole.isEmpty()) {
-            for (Cocktail cocktail : this.cocktailAvecAlcoole) {
-                if (cocktail.nom.equals(command)) {
-                    retourC = cocktail;
-                    this.cocktailAvecAlcoole.remove(retourC);
-                    break;
-                }
-            }
-        } else if (!this.cocktailSansAlcoole.isEmpty()) {
-            for (Cocktail cocktail : this.cocktailSansAlcoole) {
-                if (cocktail.nom.equals(command)) {
-                    retourC = cocktail;
-                    this.cocktailSansAlcoole.remove(retourC);
-                    break;
-                }
-            }
-
-
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        if(retourB.nom.equalsIgnoreCase(command)){
+            this.boissonFroide.remove(retourB);
+            return;
         }
-        return null;
+
+        e = Collections.enumeration(this.boissonAlcoolisee);
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        if(retourB.nom.equalsIgnoreCase(command)){
+            this.boissonAlcoolisee.remove(retourB);
+            return;
+        }
+
+        e = Collections.enumeration(this.boissonChaude);
+        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        if(retourB.nom.equalsIgnoreCase(command)){
+            this.boissonChaude.remove(retourB);
+            return;
+        }
+
+        e = Collections.enumeration(this.cocktailSansAlcoole);
+        while (e.hasMoreElements () && !((retourC=(Cocktail)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        if(retourC.nom.equalsIgnoreCase(command)){
+            this.cocktailSansAlcoole.remove(retourC);
+            return;
+        }
+
+        e = Collections.enumeration(this.cocktailAvecAlcoole);
+        while (e.hasMoreElements () && !((retourC=(Cocktail)e.nextElement()).nom.equalsIgnoreCase(command))){}
+        if(retourC.nom.equalsIgnoreCase(command)){
+            this.cocktailAvecAlcoole.remove(retourC);
+        }
+
     }
 
     /* (non-Javadoc)

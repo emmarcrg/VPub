@@ -57,8 +57,40 @@ public class BarTest {
         monBar.add(viriginMojito);
         monBar.add(biere);
         monBar.add(cafe);
-        monBar.serv("icecafe");
+        monBar.serv("Icecafe");
         assertFalse(monBar.boissonFroide.contains(icecafe));
+    }
+    @Test
+    public void testserv2() {
+        monBar.add(icecafe);
+        monBar.add(mojito);
+        monBar.add(viriginMojito);
+        monBar.add(biere);
+        monBar.add(cafe);
+        monBar.serv("cafe");
+        assertFalse(monBar.boissonChaude.contains(cafe));
+    }
+
+    @Test
+    public void testserv3() {
+        monBar.add(icecafe);
+        monBar.add(mojito);
+        monBar.add(viriginMojito);
+        monBar.add(biere);
+        monBar.add(cafe);
+        monBar.serv("ViriginMojito");
+        assertFalse(monBar.cocktailSansAlcoole.contains(viriginMojito));
+    }
+
+    @Test
+    public void testserv4() {
+        monBar.add(icecafe);
+        monBar.add(mojito);
+        monBar.add(viriginMojito);
+        monBar.add(biere);
+        monBar.add(cafe);
+        monBar.serv("biere");
+        assertFalse(monBar.boissonAlcoolisee.contains(biere));
     }
 
     @Test
