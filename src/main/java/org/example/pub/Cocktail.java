@@ -1,7 +1,9 @@
 package org.example.pub;
 
+import java.util.Collections;
 import java.util.Vector;
 import java.util.Enumeration;
+import java.util.ArrayList;
 
 /**
  * @author Pierre Le Fameux
@@ -9,18 +11,18 @@ import java.util.Enumeration;
  */
 public class Cocktail {
 
-    private class Ingrediant{
-        public String ingrediant;
+    private class Ingredient{
+        public String ingredient;
         public Double quantite;
 
-        public Ingrediant(String ingrediant, Double quantite){
-            this.ingrediant = ingrediant;
+        public Ingredient(String ingredient, Double quantite){
+            this.ingredient = ingredient;
             this.quantite = quantite;
         }
     }
 
     public String nom;
-    public Vector<Ingrediant> ingrediants;
+    public ArrayList<Ingredient> ingredients;
     public Boolean alcoolise;
 
     /**
@@ -29,17 +31,18 @@ public class Cocktail {
      */
     public Cocktail(String nom){
         this.nom = nom;
-        this.ingrediants = new Vector<Ingrediant>();
+        this.ingredients = new ArrayList<Ingredient>();
         this.alcoolise = false;
     }
 
     /**
      * add a new element into the Cocktail.
-     * @param ingrediant
+     * @param ingredient
      * @param quantite
      */
-    public void add(String ingrediant, Double quantite){
-        this.ingrediants.add(new Ingrediant(ingrediant, quantite));
+    public void add(String ingredient, Double quantite){
+        Ingredient ing= new Ingredient(ingredient, quantite);
+        this.ingredients.add(ing);
     }
 
     /**
@@ -55,11 +58,11 @@ public class Cocktail {
      */
     public String toString(){
         String retour = new String();
-        Enumeration e = this.ingrediants.elements ();
-        Ingrediant current;
+        Enumeration e = Collections.enumeration(this.ingredients);
+        Ingredient current;
         while (e.hasMoreElements ()) {
-            current = (Ingrediant)e.nextElement();
-            retour = retour + current.ingrediant + " " + current.quantite + "%";
+            current = (Ingredient)e.nextElement();
+            retour += current.ingredient + " " + current.quantite + "%";
         }
         return retour;
     }

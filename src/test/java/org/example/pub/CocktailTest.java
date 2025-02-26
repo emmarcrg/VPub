@@ -21,6 +21,7 @@ public class CocktailTest{
     }
 
     /*@Test
+    Ce test a été enlevé puisqu'il n'y a rien pour changer le fait que la boisson soit alcoolisé
     void testNotAlcoolFree(){
         //C'est un test pour les boissons avec alcools
         assertTrue(masoutBlond.alcoolFree());
