@@ -32,7 +32,7 @@ public class Bar {
     public void add(Boisson boisson) {
         if (boisson.alcoolise!=null) {
             this.boissonAlcoolisee.add(boisson);
-        } else if (boisson.temperature) {
+        } else if (boisson.getChaud()) {
             this.boissonChaude.add(boisson);
         }
         else {
@@ -98,43 +98,44 @@ public class Bar {
      * @see java.lang.Object#toString()
     */
     public String toString(){
-        String retour;
+        StringBuilder retour = new StringBuilder();
         Enumeration e = Collections.enumeration(this.boissonFroide);;
 
-        retour = "Bar : ";
+        retour.append("Bar : ");
 
-        retour += " Sans alcool = " ;
+        retour.append(" Sans alcool = ") ;
 
         while (e.hasMoreElements ()) {
-            retour += e.nextElement().toString() + ", ";
+            retour.append(e.nextElement().toString() + ", ");
         }
 
-        retour += " Avec alcool = " ;
+        retour.append(" Avec alcool = ") ;
         e = Collections.enumeration(this.boissonAlcoolisee);
         while (e.hasMoreElements ()) {
-            retour += e.nextElement().toString() + ", ";
+            retour.append(e.nextElement().toString() + ", ");
         }
 
-        retour += " Cocktail sans alcool = ";
+        retour.append(" Cocktail sans alcool = ");
         e = Collections.enumeration(this.cocktailSansAlcoole);
         while (e.hasMoreElements ()) {
-            retour +=  e.nextElement().toString() + ", ";
+            retour.append(e.nextElement().toString() + ", ");
         }
 
-        retour += "Cocktail avec alcool = ";
+        retour.append("Cocktail avec alcool = ");
         e = Collections.enumeration(this.cocktailAvecAlcoole);
         while (e.hasMoreElements ()) {
-            retour +=  e.nextElement().toString() + ", ";
+            retour.append(e.nextElement().toString() + ", ");
         }
 
-        retour +=  " Boissons chaudes = ";
+        retour.append(" Boissons chaudes = ");
         e = Collections.enumeration(this.boissonChaude);
         while (e.hasMoreElements ()) {
-            retour +=  e.nextElement().toString() + ", ";
+            retour.append(e.nextElement().toString() + ", ");
         }
 
-        return retour;
+        return retour.toString();
     }
+
 
 
 

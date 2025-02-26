@@ -95,7 +95,10 @@ public class BarTest {
 
     @Test
     public void testtoString() {
+        monBar.add(icecafe);
         monBar.add(mojito);
+        monBar.add(viriginMojito);
+        monBar.add(biere);
         monBar.add(cafe);
         System.out.println(monBar.toString());
     }
