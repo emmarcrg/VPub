@@ -1,4 +1,5 @@
 package org.example.pub;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.Enumeration;
 
@@ -7,31 +8,31 @@ import java.util.Enumeration;
  *
  */
 public class Bar {
-    public Vector<Boisson> boissonChaude;
-    public Vector<Boisson> boissonFroide;
-    public Vector<Boisson> boissonAlcoolisee;
-    public Vector<Cocktail> cocktailSansAlcoole;
-    public Vector<Cocktail> cocktailAvecAlcoole;
+    public ArrayList<Boisson> boissonChaude;
+    public ArrayList<Boisson> boissonFroide;
+    public ArrayList<Boisson> boissonAlcoolisee;
+    public ArrayList<Cocktail> cocktailSansAlcoole;
+    public ArrayList<Cocktail> cocktailAvecAlcoole;
 
     /**
      *
      */
-    public Bar(){
-        this.boissonChaude = new Vector<Boisson>();
-        this.boissonFroide = new Vector<Boisson>();
-        this.boissonAlcoolisee = new Vector<Boisson>();
-
-        this.cocktailAvecAlcoole = new Vector<Cocktail>();
-        this.cocktailSansAlcoole = new Vector<Cocktail>();
+    public Bar() {
+        this.boissonChaude = new ArrayList<Boisson>();
+        this.boissonFroide = new ArrayList<Boisson>();
+        this.boissonAlcoolisee = new ArrayList<Boisson>();
+        this.cocktailAvecAlcoole = new ArrayList<Cocktail>();
+        this.cocktailSansAlcoole = new ArrayList<Cocktail>();
     }
+
 
     /**
      * @param boisson
      */
-    public void add(Boisson boisson){
-        if(boisson.alcoolise){
+    public void add(Boisson boisson) {
+        if (boisson.alcoolise) {
             this.boissonAlcoolisee.add(boisson);
-        }else{
+        } else {
             this.boissonFroide.add(boisson);
         }
     }
@@ -39,10 +40,10 @@ public class Bar {
     /**
      * @param cocktail
      */
-    public void add(Cocktail cocktail){
-        if(cocktail.alcoolFree()){
+    public void add(Cocktail cocktail) {
+        if (cocktail.alcoolFree()) {
             this.cocktailSansAlcoole.add(cocktail);
-        }else{
+        } else {
             this.cocktailAvecAlcoole.add(cocktail);
         }
     }
@@ -51,52 +52,59 @@ public class Bar {
      * @param command
      * @return
      */
-    public Object serv(String command){
-        Boisson retourB=null;
-        Cocktail retourC=null;
-        Enumeration e;
+    public Object serv(String command) {
+        Boisson retourB = null;
+        Cocktail retourC = null;
 
-        e = this.boissonFroide.elements ();
-        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
-        if(retourB.nom.equalsIgnoreCase(command)){
-            this.boissonFroide.remove(retourB);
-            return retourB;
+        if (!this.boissonFroide.isEmpty()) {
+            for (Boisson boisson : this.boissonFroide) {
+                if (boisson.nom.equals(command)) {
+                    retourB = boisson;
+                    this.boissonFroide.remove(retourB);
+                    break;
+                }
+            }
+        } else if (!this.boissonChaude.isEmpty()) {
+            for (Boisson boisson : this.boissonChaude) {
+                if (boisson.nom.equals(command)) {
+                    retourB = boisson;
+                    this.boissonChaude.remove(retourB);
+                    break;
+                }
+            }
+        } else if (!this.boissonAlcoolisee.isEmpty()) {
+            for (Boisson boisson : this.boissonAlcoolisee) {
+                if (boisson.nom.equals(command)) {
+                    retourB = boisson;
+                    this.boissonAlcoolisee.remove(retourB);
+                    break;
+                }
+            }
+        } else if (!this.cocktailAvecAlcoole.isEmpty()) {
+            for (Cocktail cocktail : this.cocktailAvecAlcoole) {
+                if (cocktail.nom.equals(command)) {
+                    retourC = cocktail;
+                    this.cocktailAvecAlcoole.remove(retourC);
+                    break;
+                }
+            }
+        } else if (!this.cocktailSansAlcoole.isEmpty()) {
+            for (Cocktail cocktail : this.cocktailSansAlcoole) {
+                if (cocktail.nom.equals(command)) {
+                    retourC = cocktail;
+                    this.cocktailSansAlcoole.remove(retourC);
+                    break;
+                }
+            }
+
+
         }
-
-        e = this.boissonAlcoolisee.elements ();
-        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
-        if(retourB.nom.equalsIgnoreCase(command)){
-            this.boissonAlcoolisee.remove(retourB);
-            return retourB;
-        }
-
-        e = this.boissonChaude.elements ();
-        while (e.hasMoreElements () && !((retourB=(Boisson)e.nextElement()).nom.equalsIgnoreCase(command))){}
-        if(retourB.nom.equalsIgnoreCase(command)){
-            this.boissonChaude.remove(retourB);
-            return retourB;
-        }
-
-        e = this.cocktailSansAlcoole.elements ();
-        while (e.hasMoreElements () && !((retourC=(Cocktail)e.nextElement()).nom.equalsIgnoreCase(command))){}
-        if(retourC.nom.equalsIgnoreCase(command)){
-            this.cocktailSansAlcoole.remove(retourC);
-            return retourC;
-        }
-
-        e = this.cocktailAvecAlcoole.elements ();
-        while (e.hasMoreElements () && !((retourC=(Cocktail)e.nextElement()).nom.equalsIgnoreCase(command))){}
-        if(retourC.nom.equalsIgnoreCase(command)){
-            this.cocktailAvecAlcoole.remove(retourC);
-            return retourC;
-        }
-
         return null;
     }
 
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
-     */
+
     public String toString(){
         String retour = new String();
         String eol = System.getProperty("line.separator");
@@ -135,6 +143,6 @@ public class Bar {
         }
 
         return retour;
-    }
+    }*/
 
 }

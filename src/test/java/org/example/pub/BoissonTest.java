@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 //import static org.junit.jupiter.api.Assertions;
 
-public class Boisson_test {
+public class BoissonTest {
     @Test
     public void testBoisson() {
         Boisson cafe = new Boisson("cafe");
