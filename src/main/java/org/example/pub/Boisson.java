@@ -30,6 +30,11 @@ public class Boisson {
         this.degre = degre;
         this.alcoolise = true;
     }
+
+    /**
+     * @param nom
+     * @param temperature
+     */
     public Boisson(String nom, boolean temperature){
         this.nom = nom;
         this.temperature = temperature;
