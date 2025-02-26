@@ -1,6 +1,6 @@
 package org.example.pub;
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.Collections;
 import java.util.Enumeration;
 
 /**
@@ -104,45 +104,44 @@ public class Bar {
 
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
-
+    */
     public String toString(){
-        String retour = new String();
-        String eol = System.getProperty("line.separator");
-        Enumeration e;
+        String retour;
+        Enumeration e = Collections.enumeration(this.boissonFroide);;
 
-        retour = retour + "Bar : " + eol;
+        retour = "Bar : ";
 
-        retour = retour + "\t Sans alcool" + eol;
-        e = this.boissonFroide.elements ();
+        retour += " Sans alcool = " ;
+
         while (e.hasMoreElements ()) {
-            retour = retour + "\t\t" + e.nextElement().toString() + eol;
+            retour += e.nextElement().toString() + ", ";
         }
 
-        retour = retour + "\t Avec alcool" + eol;
-        e = this.boissonAlcoolisee.elements();
+        retour += " Avec alcool = " ;
+        e = Collections.enumeration(this.boissonAlcoolisee);
         while (e.hasMoreElements ()) {
-            retour = retour + "\t\t" + e.nextElement().toString() + eol;
+            retour += e.nextElement().toString() + ", ";
         }
 
-        retour = retour + "\t Cocktail sans alcool" + eol;
-        e = this.cocktailSansAlcoole.elements();
+        retour += " Cocktail sans alcool = ";
+        e = Collections.enumeration(this.cocktailSansAlcoole);
         while (e.hasMoreElements ()) {
-            retour = retour + "\t\t" + e.nextElement().toString() + eol;
+            retour +=  e.nextElement().toString() + ", ";
         }
 
-        retour = retour + "\t Cocktail avec alcool" + eol;
-        e = this.cocktailAvecAlcoole.elements();
+        retour += "Cocktail avec alcool = ";
+        e = Collections.enumeration(this.cocktailAvecAlcoole);
         while (e.hasMoreElements ()) {
-            retour = retour + "\t\t" + e.nextElement().toString() + eol;
+            retour +=  e.nextElement().toString() + ", ";
         }
 
-        retour = retour + "\t Boissons chaudes" + eol;
-        e = this.boissonChaude.elements();
+        retour +=  " Boissons chaudes = ";
+        e = Collections.enumeration(this.boissonChaude);
         while (e.hasMoreElements ()) {
-            retour = retour + "\t\t" + e.nextElement().toString() + eol;
+            retour +=  e.nextElement().toString() + ", ";
         }
 
         return retour;
-    }*/
+    }
 
 }
