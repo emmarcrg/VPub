@@ -5,15 +5,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
 
 class CaveTest {
     Cave maCave=new Cave();
+    List<Boisson> rayons = maCave.getRayons();
     Boisson cafe=new Boisson("café");
 
     @Test
     void testCave(){
         maCave.add(cafe);
-        assertTrue(maCave.rayons.contains(cafe));
+        assertTrue(rayons.contains(cafe));
     }
 
     @Test
@@ -21,14 +23,14 @@ class CaveTest {
         Boisson gin=new Boisson("gin", (float)13.0);
         maCave.add(gin);
         maCave.take("gin");
-        assertFalse( maCave.rayons.contains(gin));
+        assertFalse(rayons.contains(gin));
     }
 
     @Test
     void listeObjAbsent (){
         Boisson vinRouge=new Boisson("vin rouge", (float)13.0);
         maCave.take("vin rouge");
-        assertFalse( maCave.rayons.contains(vinRouge));
+        assertFalse(rayons.contains(vinRouge));
     }
 
     @Test
