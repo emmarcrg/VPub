@@ -7,20 +7,46 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BarTest {
 
     Bar monBar = new Bar();
-    Boisson cafe=new Boisson("cafe");
+    Boisson icecafe=new Boisson("Icecafe",false);
     Cocktail mojito = new Cocktail ("mojito");
+
+    Boisson cafe=new Boisson("cafe",true);
+    Cocktail viriginMojito = new Cocktail ("ViriginMojito");
+
+    Boisson biere=new Boisson("biere", 40.0F);
+
+
 
     @Test
     public void testAjoutBoisson() {
-        monBar.add(cafe);
-        assertTrue(monBar.boissonFroide.contains(cafe));
-    }
-    @Test
-    public void testAjoutcocktail() {
-        monBar.add(mojito);
-        assertTrue(monBar.cocktailSansAlcoole.contains(mojito));
+        monBar.add(icecafe);
+        assertTrue(monBar.boissonFroide.contains(icecafe));
     }
 
+    @Test
+    public void testAjoutBoisson2() {
+        monBar.add(cafe);
+        assertTrue(monBar.boissonChaude.contains(cafe));
+    }
+
+    @Test
+    public void testAjoutBoisson3() {
+        monBar.add(biere);
+        assertTrue(monBar.boissonAlcoolisee.contains(biere));
+    }
+
+
+    @Test
+    public void testAjoutcocktail() {
+        monBar.add(viriginMojito);
+        assertTrue(monBar.cocktailSansAlcoole.contains(viriginMojito));
+    }
+
+    @Test
+    public void testAjoutcocktail2() {
+        monBar.add(mojito);
+        assertTrue(monBar.cocktailAvecAlcoole.contains(mojito));
+    }
 
 
     @Test

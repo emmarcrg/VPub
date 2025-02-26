@@ -11,13 +11,14 @@ public class Boisson {
     public Float degre;
     public Float volume; // volume de la bouteille, cennette, fut ...
     public Float prix;
-
+    public boolean temperature; //false froid, true chaud
     /**
      * @param nom
      */
     public Boisson(String nom){
         this.nom = nom;
         this.alcoolise = false;
+        this.temperature = false;
     }
 
     /**
@@ -28,6 +29,10 @@ public class Boisson {
         this.nom = nom;
         this.degre = degre;
         this.alcoolise = true;
+    }
+    public Boisson(String nom, boolean temperature){
+        this.nom = nom;
+        this.temperature = temperature;
     }
 
     /* (non-Javadoc)
