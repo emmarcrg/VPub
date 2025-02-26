@@ -3,18 +3,23 @@ package org.example.pub;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Collections;
+import java.util.List;
 /**
  * @author Pierre Le Fameux
  *
  */
 public class Cave {
-    public ArrayList<Boisson> rayons;
+    private List<Boisson> rayons;
 
     /**
      *
      */
     public Cave(){
         this.rayons = new ArrayList<Boisson>();
+    }
+
+    public List<Boisson> getRayons() {
+        return rayons;
     }
 
     /**
@@ -45,12 +50,12 @@ public class Cave {
      * @see java.lang.Object#toString()
      */
     public String toString(){
-        String retour;
+        StringBuilder retour = new StringBuilder();
         Enumeration<Boisson> e = Collections.enumeration(this.rayons);
-        retour = "Cave : ";
+        retour.append("Cave : ");
         while (e.hasMoreElements ()) {
-            retour += e.nextElement().toString() + " ; ";
+            retour.append(e.nextElement().toString() + " ; ");
         }
-        return retour;
+        return retour.toString();
     }
 }
