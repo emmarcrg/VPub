@@ -1,19 +1,21 @@
 package org.example.pub;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.Enumeration;
+import java.util.Collections;
 /**
  * @author Pierre Le Fameux
  *
  */
 public class Cave {
-    public Vector<Boisson> rayons;
+    public ArrayList<Boisson> rayons;
 
     /**
      *
      */
     public Cave(){
-        this.rayons = new Vector<Boisson>();
+        this.rayons = new ArrayList<Boisson>();
     }
 
     /**
@@ -29,9 +31,14 @@ public class Cave {
      */
     public Boisson take(String nom){
         Boisson retour = null;
-        Enumeration e = this.rayons.elements ();
-        while (e.hasMoreElements () && !((retour=(Boisson)e.nextElement()).nom.equalsIgnoreCase(nom))){}
-        this.rayons.remove(retour);
+        Enumeration<Boisson> e = Collections.enumeration(this.rayons);
+        while (e.hasMoreElements()){
+            retour=e.nextElement();
+            if (retour.nom.equalsIgnoreCase(nom)) {
+                this.rayons.remove(retour);
+                return retour;
+            }
+        }
         return retour;
     }
 
@@ -39,12 +46,12 @@ public class Cave {
      * @see java.lang.Object#toString()
      */
     public String toString(){
-        String retour = new String();
-        String eol = System.getProperty("line.separator");
-        Enumeration e = this.rayons.elements ();
-        retour = retour + "Cave : " + eol;
+        String retour;
+        Enumeration<Boisson> e = Collections.enumeration(this.rayons);
+        String eol = System.lineSeparator();
+        retour = "Cave : " + eol;
         while (e.hasMoreElements ()) {
-            retour = retour + "\t" + e.nextElement().toString() + eol;
+            retour += "\t" + e.nextElement().toString() + eol;
         }
         return retour;
     }

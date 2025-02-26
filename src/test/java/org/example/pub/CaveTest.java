@@ -2,9 +2,10 @@ package org.example.pub;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CaveTest {
+class CaveTest {
     Cave maCave=new Cave();
     Boisson cafe=new Boisson("café");
 
@@ -19,8 +20,14 @@ public class CaveTest {
         Boisson gin=new Boisson("gin", (float)13.0);
         maCave.add(gin);
         maCave.take("gin");
-        assertTrue( !maCave.rayons.contains(gin));
+        assertFalse( maCave.rayons.contains(gin));
+    }
 
+    @Test
+    void listeObjAbsent (){
+        Boisson vinRouge=new Boisson("vin rouge", (float)13.0);
+        maCave.take("vin rouge");
+        assertFalse( maCave.rayons.contains(vinRouge));
     }
 
 
