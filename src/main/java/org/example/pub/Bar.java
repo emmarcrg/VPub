@@ -1,6 +1,7 @@
 package org.example.pub;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Vector;
 import java.util.Enumeration;
 
 /**
@@ -30,9 +31,12 @@ public class Bar {
      * @param boisson
      */
     public void add(Boisson boisson) {
-        if (boisson.alcoolise) {
+        if (boisson.alcoolise!=null) {
             this.boissonAlcoolisee.add(boisson);
-        } else {
+        } else if (boisson.temperature) {
+            this.boissonChaude.add(boisson);
+        }
+        else {
             this.boissonFroide.add(boisson);
         }
     }
@@ -143,5 +147,7 @@ public class Bar {
 
         return retour;
     }
+
+
 
 }
