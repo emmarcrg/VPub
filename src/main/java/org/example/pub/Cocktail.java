@@ -59,7 +59,7 @@ public class Cocktail {
         Ingrediant current;
         while (e.hasMoreElements ()) {
             current = (Ingrediant)e.nextElement();
-            retour = retour + current.ingrediant + " " + current.quantite + "%" + "\t";
+            retour = retour + current.ingrediant + " " + current.quantite + "%";
         }
         return retour;
     }

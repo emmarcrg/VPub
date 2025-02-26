@@ -2,8 +2,9 @@ package org.example.pub;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CaveTest {
     Cave maCave=new Cave();
@@ -30,5 +31,11 @@ class CaveTest {
         assertFalse( maCave.rayons.contains(vinRouge));
     }
 
-
+    @Test
+    void string (){
+        Boisson gin=new Boisson("gin", (float)13.0);
+        maCave.add(cafe);
+        maCave.add(gin);
+        assertEquals("Cave : café ; gin (l'abus d'alcool est dangereux pour la sante) ; ",maCave.toString());
+    }
 }

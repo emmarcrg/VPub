@@ -48,10 +48,9 @@ public class Cave {
     public String toString(){
         String retour;
         Enumeration<Boisson> e = Collections.enumeration(this.rayons);
-        String eol = System.lineSeparator();
-        retour = "Cave : " + eol;
+        retour = "Cave : ";
         while (e.hasMoreElements ()) {
-            retour += "\t" + e.nextElement().toString() + eol;
+            retour += e.nextElement().toString() + " ; ";
         }
         return retour;
     }
