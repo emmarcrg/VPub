@@ -2,6 +2,7 @@ package org.example.pub;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BarTest {
@@ -43,11 +44,22 @@ public class BarTest {
     }
 
     @Test
+    //plante mais c'est normal car il faux refactoré le cockail
     public void testAjoutcocktail2() {
         monBar.add(mojito);
         assertTrue(monBar.cocktailAvecAlcoole.contains(mojito));
     }
 
+    @Test
+    public void testserv() {
+        monBar.add(icecafe);
+        monBar.add(mojito);
+        monBar.add(viriginMojito);
+        monBar.add(biere);
+        monBar.add(cafe);
+        monBar.serv("icecafe");
+        assertFalse(monBar.boissonFroide.contains(icecafe));
+    }
 
     @Test
     public void testtoString() {
